@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+
+\newcommand{\assetsPath}{.}
+
+\input{\assetsPath/preambulo.tex}
+
+
+\begin{document}
+
+    % 1. Foto de fondo
+    % 2. Título
+    % 3. Encabezado Izquierdo
+    % 4. Color de fondo
+    % 5. Coord x del titulo
+    % 6. Coord y del titulo
+    % 7. Fecha
+
+    
+    \input{\assetsPath/portada}
+    \portadaExamen{ffccA4.jpg}{Asignatura\\Examen I}{Asignatura. Examen I}{MidnightBlue}{-8}{28}{Año}{Autor}
+
+    \begin{description}
+        \item[Asignatura] ---.
+        \item[Curso Académico] ---.
+        \item[Grado] ---.
+        \item[Grupo] ---.
+        \item[Profesor] ---.
+        \item[Descripción] ---.
+        \item[Fecha] ---.
+        \item[Duración] ---.
+    
+    \end{description}
+    \newpage
+
+
+    % ------------------------------------
+    
+    \begin{ejercicio}[X puntos]
+        Enunciado del primer ejercicio.
+    \end{ejercicio}
+
+    \newpage
+    \setcounter{ejercicio}{0} % Reiniciar contador de ejercicios
+    \noindent
+    \textbf{Solución.}
+
+    \begin{ejercicio}[X puntos]
+        Enunciado del primer ejercicio, junto con su solución.
+
+        Esto se hace para que el lector pueda leer el examen completo tener que ver las soluciones previamente.
+    \end{ejercicio}
+\end{document}

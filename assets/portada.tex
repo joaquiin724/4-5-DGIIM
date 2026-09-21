@@ -1,0 +1,34 @@
+% #1-Asignatura
+% #2-Curso
+% #3-Nombre
+% #4-Idioma (ej. english, spanish, italian)
+
+\newcommand{\portada}[4]{
+    % Forzamos que el documento principal adopte el idioma global desde este punto
+    \selectlanguage{#4}
+    
+    \fancyhead[L]{\helv #2}
+    \fancyhead[R]{\helv \nouppercase{\leftmark}}
+
+    \begin{titlepage}
+        \begin{center}
+            % Título principal
+            \fontsize{46}{50}\selectfont\textbf{#1}
+            \vspace{3cm}
+
+            % Imagen del logotipo
+            \includegraphics[width=0.6\textwidth]{/home/joaquiin_724/Documentos/ERASMUS/assets/logotipo.png}  
+            
+            % Espacio para el nombre
+            \vspace{2cm}
+            \fontsize{25}{35}\selectfont\textbf{#3}
+
+            \vspace{2.5cm}
+
+            % Fecha automática (saldrá en el idioma correcto)
+            \Large{\today}
+
+            \vspace{1cm}
+        \end{center}
+    \end{titlepage}
+}
