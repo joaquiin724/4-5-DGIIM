@@ -79,7 +79,7 @@
 \end{observacion}
 
 \begin{definicion}
-    Dados $X$ e.t., $x,y\in X$ y dos arcos $\alpha, \beta\in \Omega(X;x,y)$, decimos que $\alpha, \beta$ son \textbf{homotópicos por arcos} si existe $H:[0,1]\times [0,1] \to X$ continua tal que 
+    Dados $X$ un e.t., $x,y\in X$ y dos arcos $\alpha, \beta\in \Omega(X;x,y)$, decimos que $\alpha, \beta$ son \textbf{homotópicos por arcos} si existe $H:[0,1]\times [0,1] \to X$ continua tal que 
     \begin{align*}
         H(s,0) = \alpha(s) \hspace{0.5cm} &\text{ y } \hspace{0.5cm} H(s,1) = \beta(s) \ \ \ &\forall s\in [0,1]\\
         H(0,t) = x  \hspace{0.5cm} &\text{ y } \hspace{0.5cm} H(1,t) = y \ \ \ &\forall t \in [0,1]
@@ -87,15 +87,8 @@
     A $H$ se le llama \tbf{homotopía por arcos}.
 \end{definicion}
 
-\begin{notacion}
-    Para cualesquiera arcos $\alpha,\beta$, notaremos que $\alpha,\beta\in \Omega(X;x,y)$ para indicar que tienen extremos iguales, es decir
-    \begin{equation*}
-        \alpha(0) = \beta(0) = x \hspace{1cm} \text{ y } \hspace{1cm} \alpha(1) = \beta(1) = y
-    \end{equation*}
-\end{notacion}
-
 \begin{lema}
-    Ser homotópico por arcos da lugar a una relación de equivalencia en $\Omega(X;x,y)$.
+    Sean $x,y$ dos puntos de un e.t. $X$, entonces el ser homotópicos por arcos es una relación de equivalencia en $\Omega(X;x,y)$.
 
     \begin{figure}[H]
         \centering
@@ -149,7 +142,7 @@
         \begin{enumerate}
             \item[(i)] Dado $\alpha \in \Omega(X;x,y)$ queremos ver que $\alpha$ es homotópica por arcos con $\alpha$. Para ello podemos definir la homotopía por arcos
             \Func{H}{[0,1]\times[0,1]}{X}{(s,t)}{\alpha(s)}
-            Como $\alpha\in \Omega(X;x,y)$ tenemos que $\alpha(s)\in X$ para todo $s\in [0,1]$. Además se verifica que
+            que es claramente continua. Además, como $\alpha\in \Omega(X;x,y)$, tenemos que $\alpha(s)\in X$ para todo $s\in [0,1]$. Además se verifica que
             \begin{gather*}
                 H(s,0) = \alpha(s)=H(s,1)\\
                 H(0,t) = \alpha(0)=x \hspace{1cm} H(1,t) = \alpha(1) = y
@@ -165,7 +158,7 @@
                 \tilde{H}(s,0) = \beta(s) \hspace{0.5cm} &\text{ y } \hspace{0.5cm} \tilde{H}(s,1) = \alpha(x) \ \ \ &\forall s\in [0,1]\\
                 \tilde{H}(0,t) = x  \hspace{0.5cm} &\text{ y } \hspace{0.5cm} \tilde{H}(1,t) = y \ \ \ &\forall t \in [0,1]
             \end{align*}
-            Tomando $\tilde{H}(s,t):=H(s, 1-t)$ cumple claramente con lo que buscamos:
+            es decir que $\beta$ es homotópica por arcos a $\alpha$. Tomando $\tilde{H}(s,t):=H(s, 1-t)$ cumple claramente con lo que buscamos:
             \begin{gather*}
                 \tilde{H}(s,0) = H(s, 1-0) = H(s,1) = \beta(x)\\
                 \tilde{H}(s, 1) = H(s, 1-1) = H(s,0) = \alpha(x)\\
@@ -188,7 +181,7 @@
                 H(s,0) = \alpha(s) \hspace{1cm} & H(s,1) = \gamma(s)\\
                 H(0,t) = x \hspace{1cm} & H(1,t) = y
             \end{align*}
-            Para ello consideramos 
+            es decir, que $\alpha$ es homotópica por arcos a $\gamma$. Para ello consideramos 
             \begin{gather*}
                 H(s,t) = \left\{
                     \begin{array}{l c c}
@@ -222,6 +215,10 @@
     Este resultado es análogo para homotopías. Es decir, ser homotópico da lugar a una relación de equivalencia en $C(X,Y) = \{f :X\to Y : f \text{ continua}\}$.
 \end{observacion}
 
+\begin{notacion}
+    Por convenio, dado un arco cualquiera $\alpha\in \Omega(X;x,y)$ denotaremos por $[\alpha]$ a la clase de equivalencia de $\alpha$ bajo la relación de ser homotópicos por arcos.
+\end{notacion}
+
 \begin{ejemplo}\
     \begin{enumerate}
         \item Sean $X$ un e.t. y $f,g:X \to \bb{R}^n$ aplicaciones continuas entonces se tiene que $f$ y $g$ son homotópicas.
@@ -234,9 +231,15 @@
             \end{gather*}
             por lo que tenemos lo que buscábamos.
         \end{proof}
-        En el caso particular de que $f=\alpha$ y $g=\beta$ fuesen arcos comenzando en un punto común y acabando en otro punto común, entonces la $H$ anterior sería una homotopía por arcos.
+        En el caso particular de que $f=\alpha$ y $g=\beta$ fuesen arcos comenzando en un punto común y acabando en otro punto común, entonces la $H$ anterior (que fija los extremos) sería una homotopía por arcos, y tendríamos $[\alpha]=[\beta]$.
 
-        \item Si $\alpha: [0,1]\to X$ es un arco y $h:[0,1] \to [0,1]$ es una aplicación continua con $h(0)=0$ y $h(1)=1$, entonces $\dot{\alpha}(s) = \alpha(h(s))$ es homotópica por arcos a $\alpha(s)$.
+        \item Intuitivamente hay arcos en $\R^2\setminus\{(0,0)\}$ que no son homotópicos entre arcos. Este hecho no lo hemos demostrado todavía y no lo haremos ahora, pero es una consecuencia intuitiva de la definición.
+
+        \item Si $\alpha: [0,1]\to X$ es un arco en $\Omega(X;x,y)$ y $h:[0,1] \to [0,1]$ es una aplicación continua con $h(0)=0$ y $h(1)=1$, entonces el arco
+        \begin{equation*}
+            \dot{\alpha}(s) = \alpha(h(s))
+        \end{equation*}
+        cumple $[\alpha] = [\dot{\alpha}]$, es decir, son homotópicos por arcos.
         
         \begin{proof}
             Es claro que $\dot{\alpha}$ es continua y existe una homotopía por arcos entre $\alpha$ y $\dot{\alpha}$ que es la siguiente
@@ -246,19 +249,16 @@
             que es claramente continua y que verifica que 
             \begin{align*}
                 H(s,0) = \alpha(s) \hspace{1cm} & H(s,1) = \alpha(h(s)) = \dot{\alpha}(s)\\
-                H(0,t) = \alpha(0)=\dot{\alpha}(1) \hspace{1cm} & H(1,t) = \alpha(1) = \dot{\alpha}(1)
+                H(0,t) = \alpha(0)=\dot{\alpha}(0)=0 \hspace{1cm} & H(1,t) = \alpha(1) = \dot{\alpha}(1)=1
             \end{align*}
         \end{proof}
         Intuitivamente podemos entender esto como que no importa a qué velocidad se recorra una curva para ser homotópico por arcos.
     \end{enumerate} 
 \end{ejemplo}
 
-\begin{notacion}
-    Por convenio, a la clase de equivalencia de un arco $\alpha$ en $\Omega(X;x,y)$ la denotaremos por $[\alpha]$.
-\end{notacion}
-
 \begin{lema}
-    Dados dos arcos $\alpha_1, \alpha_2$ en $\Omega(X;x,y)$ y $\beta_1, \beta_2\in \Omega(X; y,z)$. Se verifica que si $[\alpha_1] = [\alpha_2]$ y $[\beta_1] = [\beta_2]$, entonces $[\alpha_1\ast\beta_1] = [\alpha_2\ast\beta_2]$.
+    Dados dos arcos $\alpha_1, \alpha_2$ en $\Omega(X;x,y)$ y $\beta_1, \beta_2\in \Omega(X; y,z)$. Se verifica que si $[\alpha_1] = [\alpha_2]$ y $[\beta_1] = [\beta_2]$, entonces 
+    $$[\alpha_1\ast\beta_1] = [\alpha_2\ast\beta_2]$$
 
     \begin{proof}
         Tenemos que 
@@ -315,7 +315,7 @@
 \end{lema}
 
 \begin{definicion}
-    A partir del lema anterior podemos definir
+    A partir del lema anterior, podemos definir la \tbf{operación} $\ast$ \tbf{en las clases de equivalencia} de la siguiente manera:
     \begin{gather*}
         [\alpha] \ast [\beta] := [\alpha \ast \beta]
     \end{gather*}
@@ -323,7 +323,7 @@
 \end{definicion}
 
 \begin{teo}
-    Dado $X$ e.t., $\alpha\in \Omega(X;x,y)$, $\beta\in \Omega(X;y,z)$ y $\gamma\in \Omega(X;z,w)$ se tiene que 
+    Dado $X$ un e.t., $\alpha\in \Omega(X;x,y)$, $\beta\in \Omega(X;y,z)$ y $\gamma\in \Omega(X;z,w)$ se tiene que 
     \begin{enumerate}
         \item[(i)] $[\alpha] \ast ([\beta] \ast [\gamma]) = ([\alpha] \ast [\beta]) \ast [\gamma]$
         \item[(ii)] $[\alpha]\ast [\veps_y] = [\alpha]$ y $[\veps_x]\ast [\alpha] = [\alpha]$
